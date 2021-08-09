@@ -19,13 +19,12 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
- (setq doom-font (font-spec :family "Hack Nerd Font" :size 17 :weight 'semi-light)
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 17 :weight 'semi-light)
 	   doom-variable-pitch-font (font-spec :family "sans" :size 17))
-
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-city-lights)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -95,17 +94,30 @@
 ;;   :hook (pdf-tools-enabled . hide-mode-line-mode)
 ;;   :config
 ;;   (setq pdf-view-midnight-colors '("#ABB2BF" . "#282C35")))
-;; (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
+(add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
 
 
 (after! org (setq org-startup-with-latex-preview t))
 (setq org-hide-emphasis-markers t)
 
 ;; ORG LATEX - CONFIG
-(setq org-latex-listings 'minted
-      org-latex-packages-alist '(("" "minted"))
-      org-latex-pdf-process
-      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;; (setq org-latex-listings 'minted
+;;       org-latex-packages-alist '(("" "minted"))
+;;       org-latex-pdf-process
+;;       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+(setq org-latex-pdf-process '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+(setq org-latex-listings 'minted)
+(add-to-list 'org-latex-packages-alist '("" "minted"))
+
 ;; make latex bigger
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+
+;; COMPANY - CONFIG
+(after! company
+  (setq company-idle-delay 0.2
+        company-minimum-prefix-length 2)
+  (setq company-show-quick-numbers t)
+(add-hook 'evil-normal-state-entry-hook #'company-abort))
+(setq doom-line-numbers-style 'relative)
