@@ -97,7 +97,7 @@
 (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
 
 
-(after! org (setq org-startup-with-latex-preview t))
+;; (after! org (setq org-startup-with-latex-preview t))
 (setq org-hide-emphasis-markers t)
 
 ;; ORG LATEX - CONFIG
@@ -121,3 +121,8 @@
   (setq company-show-quick-numbers t)
 (add-hook 'evil-normal-state-entry-hook #'company-abort))
 (setq doom-line-numbers-style 'relative)
+
+;; EVIL MODE TWEAKS
+(map! :n "j" #'evil-next-visual-line
+      :n "k" #'evil-previous-visual-line)
+
