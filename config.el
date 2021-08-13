@@ -97,19 +97,18 @@
 (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
 
 
-;; (after! org (setq org-startup-with-latex-preview t))
+; (after! org (setq org-startup-with-latex-preview t))
 (setq org-hide-emphasis-markers t)
 
 ;; ORG LATEX - CONFIG
-;; (setq org-latex-listings 'minted
-;;       org-latex-packages-alist '(("" "minted"))
-;;       org-latex-pdf-process
-;;       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
-
-(setq org-latex-pdf-process '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
-(setq org-latex-listings 'minted)
-(add-to-list 'org-latex-packages-alist '("" "minted"))
+(setq org-latex-listings 'minted
+      org-latex-packages-alist '(("" "minted"))
+      org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;; (setq org-latex-pdf-process '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;; (setq org-latex-listings 'minted)
+;; (add-to-list 'org-latex-packages-alist '("" "minted"))
 
 ;; make latex bigger
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
