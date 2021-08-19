@@ -24,7 +24,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-city-lights)
+(setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -39,7 +39,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -85,7 +85,6 @@
     :hook (org-roam . org-roam-ui-mode)
     :config
 )
-(setenv "PKG_CONFIG_PATH" "/usr/share//pkgconfig:/usr/lib/pkgconfig")
 
 ;; PDF - SETTINGS
 
@@ -94,6 +93,7 @@
 ;;   :hook (pdf-tools-enabled . hide-mode-line-mode)
 ;;   :config
 ;;   (setq pdf-view-midnight-colors '("#ABB2BF" . "#282C35")))
+(setenv "PKG_CONFIG_PATH" "/usr/share//pkgconfig:/usr/lib/pkgconfig")
 (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
 
 
